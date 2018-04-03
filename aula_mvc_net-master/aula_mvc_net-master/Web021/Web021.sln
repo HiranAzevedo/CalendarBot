@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web021", "Web021\Web021.csproj", "{79DD07EE-5700-4465-8F5C-4F8B80CA6074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web021.Tests", "Web021.Tests\Web021.Tests.csproj", "{A0619E6B-5343-477D-99A6-280D2CE5725C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{50793642-C90A-40C5-8024-8948262A57F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DadoDB", "DadoDB\DadoDB.csproj", "{C42FB94A-4B92-4062-B174-7DCE173A202E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servico", "Servico\Servico.csproj", "{2F39D58D-1832-4097-B7B2-160201237301}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DadoMemoria", "DadoMemoria\DadoMemoria.csproj", "{C9E2DE84-8F98-4A41-8F41-1785F8B7484B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{BF52A728-6009-4116-BF43-3F05375FAB26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79DD07EE-5700-4465-8F5C-4F8B80CA6074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DD07EE-5700-4465-8F5C-4F8B80CA6074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DD07EE-5700-4465-8F5C-4F8B80CA6074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DD07EE-5700-4465-8F5C-4F8B80CA6074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0619E6B-5343-477D-99A6-280D2CE5725C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0619E6B-5343-477D-99A6-280D2CE5725C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0619E6B-5343-477D-99A6-280D2CE5725C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0619E6B-5343-477D-99A6-280D2CE5725C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50793642-C90A-40C5-8024-8948262A57F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50793642-C90A-40C5-8024-8948262A57F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50793642-C90A-40C5-8024-8948262A57F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50793642-C90A-40C5-8024-8948262A57F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C42FB94A-4B92-4062-B174-7DCE173A202E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42FB94A-4B92-4062-B174-7DCE173A202E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42FB94A-4B92-4062-B174-7DCE173A202E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42FB94A-4B92-4062-B174-7DCE173A202E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F39D58D-1832-4097-B7B2-160201237301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F39D58D-1832-4097-B7B2-160201237301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F39D58D-1832-4097-B7B2-160201237301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F39D58D-1832-4097-B7B2-160201237301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E2DE84-8F98-4A41-8F41-1785F8B7484B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E2DE84-8F98-4A41-8F41-1785F8B7484B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E2DE84-8F98-4A41-8F41-1785F8B7484B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E2DE84-8F98-4A41-8F41-1785F8B7484B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF52A728-6009-4116-BF43-3F05375FAB26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF52A728-6009-4116-BF43-3F05375FAB26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF52A728-6009-4116-BF43-3F05375FAB26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF52A728-6009-4116-BF43-3F05375FAB26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿@model EntityAlpha.Models.Aluguel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Aluguel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.carro.placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carro.placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.locacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.locacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prazo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prazo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.devolucao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.devolucao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

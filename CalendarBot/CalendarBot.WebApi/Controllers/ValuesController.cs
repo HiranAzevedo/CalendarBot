@@ -10,7 +10,7 @@ namespace CalendarBot.WebApi.Controllers
         {
             var botClient = new Telegram.Bot.TelegramBotClient("your API access Token");
             var me = await botClient.GetMeAsync();
-            System.Console.WriteLine($"Hello! My name is {me.FirstName}");
+            System.Console.WriteLine($@"Hello! My name is {me.FirstName}");
             return $"Hello! My name is {me.FirstName}";
         }
 

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CalendarBot.ConsoleApp")]
+[assembly: AssemblyTitle("CalendarBot.Authentication")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CalendarBot.ConsoleApp")]
+[assembly: AssemblyProduct("CalendarBot.Authentication")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("924a527b-7958-4995-8b31-874118989984")]
+[assembly: Guid("625f905b-08a2-48c3-83c2-f399207992a7")]
 
 // Version information for an assembly consists of the following four values:
 //

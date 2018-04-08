@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalendarBot.Repository
 {
-    public class Class1
+    public class DataBase
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using System.IO;
 
 namespace CalendarBot.Configuration
@@ -8,7 +9,7 @@ namespace CalendarBot.Configuration
         public static string TelegramBotToken;
         static AppBotConfiguration()
         {
-            using (var reader = new StreamReader("BotToken.json"))
+            using (var reader = new StreamReader($"{AppDomain.CurrentDomain.BaseDirectory}\\BotToken.json"))
             {
                 var json = reader.ReadToEnd();
                 var config = JsonConvert.DeserializeObject<TelegramConfigToken>(json);

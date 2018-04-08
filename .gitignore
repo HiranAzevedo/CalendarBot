@@ -288,3 +288,6 @@ __pycache__/
 *.xsd.cs
 
 CalendarBot/CalendarBot\.Configuration/BotToken\.json
+
+CalendarBot/CalendarBot\.ConsoleApp/BotToken\.json
+/CalendarBot/CalendarBot.ConsoleApp/client_id.json

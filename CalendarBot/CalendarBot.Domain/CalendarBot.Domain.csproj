@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Calendar.cs" />
+    <Compile Include="Entities\CalendarOfEvents.cs" />
     <Compile Include="Entities\Event.cs" />
+    <Compile Include="Interfaces\Repository\ICalendarRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Service\ICalendarService.cs" />
+    <Compile Include="Interfaces\Service\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

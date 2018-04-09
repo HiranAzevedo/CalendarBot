@@ -10,6 +10,8 @@ namespace CalendarBot.Configuration
         private Timer _timer;
         private readonly Action _callback;
 
+        public string UserName { get; set; }
+
         public OncePerDayTimer(TimeSpan time, Action callbak)
         {
             _time = time;

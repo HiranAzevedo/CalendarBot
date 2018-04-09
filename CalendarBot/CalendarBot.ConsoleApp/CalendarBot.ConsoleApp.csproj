@@ -70,6 +70,18 @@
       <Project>{4C075769-1F8A-4EB2-A0DC-3327B97CC346}</Project>
       <Name>CalendarBot.Configuration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CalendarBot.Domain\CalendarBot.Domain.csproj">
+      <Project>{41A10EBF-7C83-48DF-9A3E-FF81114CF39D}</Project>
+      <Name>CalendarBot.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalendarBot.Repository\CalendarBot.Repository.csproj">
+      <Project>{DE2A3EC6-B59C-411D-AE4E-16532269F934}</Project>
+      <Name>CalendarBot.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalendarBot.Service\CalendarBot.Service.csproj">
+      <Project>{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}</Project>
+      <Name>CalendarBot.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

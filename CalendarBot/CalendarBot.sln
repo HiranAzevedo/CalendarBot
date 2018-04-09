@@ -7,15 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.WebApi", "Calen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Service", "CalendarBot.Service\CalendarBot.Service.csproj", "{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Bussiness", "CalendarBot.Bussiness\CalendarBot.Bussiness.csproj", "{22C77615-019E-4EDC-93B0-374DF819E8E5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Repository", "CalendarBot.Repository\CalendarBot.Repository.csproj", "{DE2A3EC6-B59C-411D-AE4E-16532269F934}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Configuration", "CalendarBot.Configuration\CalendarBot.Configuration.csproj", "{4C075769-1F8A-4EB2-A0DC-3327B97CC346}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.ConsoleApp", "CalendarBot.ConsoleApp\CalendarBot.ConsoleApp.csproj", "{924A527B-7958-4995-8B31-874118989984}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Authentication", "CalendarBot.Authentication\CalendarBot.Authentication.csproj", "{625F905B-08A2-48C3-83C2-F399207992A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Domain", "CalendarBot.Domain\CalendarBot.Domain.csproj", "{41A10EBF-7C83-48DF-9A3E-FF81114CF39D}"
 EndProject
@@ -33,10 +29,6 @@ Global
 		{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22C77615-019E-4EDC-93B0-374DF819E8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22C77615-019E-4EDC-93B0-374DF819E8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22C77615-019E-4EDC-93B0-374DF819E8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22C77615-019E-4EDC-93B0-374DF819E8E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE2A3EC6-B59C-411D-AE4E-16532269F934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DE2A3EC6-B59C-411D-AE4E-16532269F934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE2A3EC6-B59C-411D-AE4E-16532269F934}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,10 +41,6 @@ Global
 		{924A527B-7958-4995-8B31-874118989984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{924A527B-7958-4995-8B31-874118989984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{924A527B-7958-4995-8B31-874118989984}.Release|Any CPU.Build.0 = Release|Any CPU
-		{625F905B-08A2-48C3-83C2-F399207992A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{625F905B-08A2-48C3-83C2-F399207992A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{625F905B-08A2-48C3-83C2-F399207992A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{625F905B-08A2-48C3-83C2-F399207992A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{41A10EBF-7C83-48DF-9A3E-FF81114CF39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41A10EBF-7C83-48DF-9A3E-FF81114CF39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41A10EBF-7C83-48DF-9A3E-FF81114CF39D}.Release|Any CPU.ActiveCfg = Release|Any CPU

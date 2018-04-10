@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CalendarBot.Domain.Entities;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types.Enums;
@@ -56,27 +57,48 @@ namespace CalendarBot.ConsoleApp
         {
             var callbackQuery = callbackQueryEventArgs.CallbackQuery;
 
-            if (!callbackQuery.Data.Contains("/FeriadosMes"))
+            if (callbackQuery.Data.Contains("/FeriadosMes"))
             {
-                return;
+                var month = Convert.ToInt32(callbackQuery.Data.Split(' ')[1]);
+                var calendar = Service.GetById("System-Holiday");
+
+                var events = calendar.Events.Where(x => x.StartDate.Month == month);
+                var builder = new StringBuilder();
+
+                foreach (var @event in events)
+                {
+                    builder.AppendLine($@"{@event.Title} - {@event.StartDate:d}");
+                }
+
+                builder.AppendLine("that's all");
+
+                await Bot.SendTextMessageAsync(
+                    callbackQuery.Message.Chat.Id,
+                    builder.ToString());
             }
 
-            var month = Convert.ToInt32(callbackQuery.Data.Split(' ')[1]);
-            var calendar = Service.GetById("System-Holiday");
-
-            var events = calendar.Events.Where(x => x.StartDate.Month == month);
-            var builder = new StringBuilder();
-
-            foreach (var @event in events)
+            if (callbackQuery.Data.Contains("/ListarEventosAgendaMensal"))
             {
-                builder.AppendLine($@"{@event.Title} - {@event.StartDate:d}");
+                var month = Convert.ToInt32(callbackQuery.Data.Split(' ')[1]);
+                var calendar = Service.GetById(callbackQuery.Message.Chat.Username);
+
+                var events = calendar.Events.Where(x => x.StartDate.Month == month).ToList();
+
+                var builder = new StringBuilder();
+                builder.AppendLine($"Month {month} events :");
+
+                if (events.Count() > default(int))
+                {
+                    foreach (var @event in events)
+                    {
+                        builder.AppendLine($"{@event.Title} -> {@event.StartDate:g} - {@event.EndDate:g}");
+                    }
+                }
+
+                await Bot.SendTextMessageAsync(
+                    callbackQuery.Message.Chat.Id,
+                    builder.ToString());
             }
-
-            builder.AppendLine("that's all");
-
-            await Bot.SendTextMessageAsync(
-                callbackQuery.Message.Chat.Id,
-                builder.ToString());
 
             //await Bot.AnswerCallbackQueryAsync(
             //    callbackQuery.Id,
@@ -107,6 +129,7 @@ namespace CalendarBot.ConsoleApp
             switch (message.Text.Split(' ').FirstOrDefault())
             {
                 case "/Start":
+                case "/start":
                     {
                         var builder = new StringBuilder();
                         builder.AppendLine("/AgendaInfDia hour:min -> comand to set an alert at this time");
@@ -121,20 +144,24 @@ namespace CalendarBot.ConsoleApp
                     {
                         await Bot.SendChatActionAsync(message.Chat.Id, ChatAction.Typing);
 
+                        var previousAlert = Alerts.FirstOrDefault(x => x.UserName == message.Chat.Username);
+                        previousAlert?.Dispose();
+
                         var timeOfAlert = message.Text.Split(' ').ElementAtOrDefault(1);
-                        if (timeOfAlert != null && (string.IsNullOrWhiteSpace(timeOfAlert) && timeOfAlert.Contains(":")))
+                        if (string.IsNullOrWhiteSpace(timeOfAlert) || !timeOfAlert.Contains(":"))
                         {
                             await Bot.SendTextMessageAsync(
                                 message.Chat.Id,
-                                $"Invalid hour input, use hour:min format");
+                                "Invalid hour input, use hour:min format");
+                            break;
                         }
 
                         try
                         {
-                            var timeSplit = timeOfAlert?.Split(':');
-                            var hour = Convert.ToInt32(timeSplit?[0]);
-                            var min = Convert.ToInt32(timeSplit?[1]);
-                            Alerts.Add(new OncePerDayTimer(new TimeSpan(hour, min, 0), () => GetInfoOfTheDay(message.Chat.Username)));
+                            var timeSplit = timeOfAlert.Split(':');
+                            var hour = Convert.ToInt32(timeSplit[0]);
+                            var min = Convert.ToInt32(timeSplit[1]);
+                            Alerts.Add(new OncePerDayTimer(new TimeSpan(hour, min, 0), () => GetInfoOfTheDay(message.Chat.Username, message.Chat.Id.ToString())));
 
                             await Bot.SendTextMessageAsync(
                                 message.Chat.Id,
@@ -144,7 +171,7 @@ namespace CalendarBot.ConsoleApp
                         {
                             await Bot.SendTextMessageAsync(
                                 message.Chat.Id,
-                                $"Invalid hour input, use hour:min format");
+                                "Invalid hour input, use hour:min format");
                         }
 
                         break;
@@ -177,6 +204,73 @@ namespace CalendarBot.ConsoleApp
 
                         break;
                     }
+                case "/ListarEventosAgendaMensal":
+                    {
+                        var inlineKeyboard = new InlineKeyboardMarkup(new[]
+                        {
+                        new []
+                        {
+                            InlineKeyboardButton.WithCallbackData("1","/ListarEventosAgendaMensal 1"),
+                            InlineKeyboardButton.WithCallbackData("2","/ListarEventosAgendaMensal 2"),
+                            InlineKeyboardButton.WithCallbackData("3","/ListarEventosAgendaMensal 3"),
+                            InlineKeyboardButton.WithCallbackData("4","/ListarEventosAgendaMensal 4"),
+                            InlineKeyboardButton.WithCallbackData("5","/ListarEventosAgendaMensal 5"),
+                            InlineKeyboardButton.WithCallbackData("6","/ListarEventosAgendaMensal 6")
+                        },
+                        new []
+                        {
+                            InlineKeyboardButton.WithCallbackData("7","/ListarEventosAgendaMensal 7"),
+                            InlineKeyboardButton.WithCallbackData("8","/ListarEventosAgendaMensal 8"),
+                            InlineKeyboardButton.WithCallbackData("9","/ListarEventosAgendaMensal 9"),
+                            InlineKeyboardButton.WithCallbackData("10","/ListarEventosAgendaMensal 10"),
+                            InlineKeyboardButton.WithCallbackData("11","/ListarEventosAgendaMensal 11"),
+                            InlineKeyboardButton.WithCallbackData("12","/ListarEventosAgendaMensal 12")
+                        }
+                    });
+
+                        await Bot.SendTextMessageAsync(message.Chat.Id, "Choose the month", replyMarkup: inlineKeyboard);
+                        break;
+                    }
+                case "/CriarEvento":
+                    {
+                        var infos = message.Text.Replace("/CriarEvento", string.Empty).Split('-');
+                        var convertOk = DateTime.TryParse(infos.ElementAtOrDefault(0), out var startdate);
+                        if (!convertOk)
+                        {
+                            await Bot.SendTextMessageAsync(message.Chat.Id, "Invalid start date input, use dd/mm/yyyy hh:mm:ss format");
+                            break;
+                        }
+
+                        convertOk = DateTime.TryParse(infos.ElementAtOrDefault(1), out var endDate);
+                        if (!convertOk)
+                        {
+                            await Bot.SendTextMessageAsync(message.Chat.Id, "Invalid end date input, use dd/mm/yyyy hh:mm:ss format");
+                            break;
+                        }
+
+                        var title = infos.ElementAtOrDefault(2)?.Trim();
+                        if (string.IsNullOrWhiteSpace(title))
+                        {
+                            await Bot.SendTextMessageAsync(message.Chat.Id, "Title is empty");
+                            break;
+                        }
+
+                        var userCalendar = Service.GetById(message.Chat.Username) ?? new CalendarOfEvents();
+                        userCalendar.OwnerUserName = message.Chat.Username;
+                        userCalendar.Events.Add(new EventScheduled
+                        {
+                            Description = title,
+                            Title = title,
+                            StartDate = startdate,
+                            EndDate = endDate,
+                        });
+
+                        Service.Update(userCalendar);
+
+                        await Bot.SendTextMessageAsync(message.Chat.Id, $"Event created -> {startdate:g} - {endDate:g} - {title}");
+
+                        break;
+                    }
                 default:
                     {
                         Console.WriteLine(@"Erro");
@@ -186,18 +280,24 @@ namespace CalendarBot.ConsoleApp
             }
         }
 
-        public static string GetInfoOfTheDay(string userName)
+        public static async void GetInfoOfTheDay(string userName, string chatId)
         {
-            var userCalendar = Service.GetById(userName);
-
             var builder = new StringBuilder();
+            builder.AppendLine($"This is your daily events of {DateTime.Now:d}");
 
-            foreach (var @event in userCalendar.Events)
+            var userCalendar = Service.GetById(userName);
+            var dailyEvents = userCalendar?.Events.Where(x => x.StartDate.ToShortDateString() == DateTime.Now.ToShortDateString());
+
+            if (dailyEvents != null)
             {
-                builder.AppendLine($"{@event.StartDate:g} - {@event.EndDate:g} => {@event.Title}");
+                foreach (var @event in dailyEvents)
+                {
+                    builder.AppendLine($"{@event.StartDate:g} - {@event.EndDate:g} => {@event.Title}");
+                }
+
             }
 
-            return builder.ToString();
+            await Bot.SendTextMessageAsync(chatId, builder.ToString());
         }
     }
 }

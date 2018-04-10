@@ -116,7 +116,6 @@ namespace CalendarBot.ConsoleApp
 
         private static async void BotOnMessage(object sender, MessageEventArgs messageEventArgs)
         {
-            //Usuario ta no messageEventArgs.Message.chat.username
             var message = messageEventArgs.Message;
 
             if (message == null || message.Type != MessageType.TextMessage)
@@ -134,6 +133,8 @@ namespace CalendarBot.ConsoleApp
                         var builder = new StringBuilder();
                         builder.AppendLine("/AgendaInfDia hour:min -> comand to set an alert at this time");
                         builder.AppendLine("/FeriadosMes -> command to list holidays of one mouth");
+                        builder.AppendLine("/ListarEventosAgendaMensal -> list of the selected month events");
+                        builder.AppendLine("/CriarEvento dd/mm/yy hh:mm - dd/mm/yy hh:mm - title -> create a new event in calendar");
 
                         await Bot.SendTextMessageAsync(
                             message.Chat.Id,

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.WebApi", "CalendarBot.WebApi\CalendarBot.WebApi.csproj", "{67CD48DF-E43E-4F5A-A5C1-EBEC239298B6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Service", "CalendarBot.Service\CalendarBot.Service.csproj", "{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBot.Repository", "CalendarBot.Repository\CalendarBot.Repository.csproj", "{DE2A3EC6-B59C-411D-AE4E-16532269F934}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{67CD48DF-E43E-4F5A-A5C1-EBEC239298B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67CD48DF-E43E-4F5A-A5C1-EBEC239298B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67CD48DF-E43E-4F5A-A5C1-EBEC239298B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67CD48DF-E43E-4F5A-A5C1-EBEC239298B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FEE45A8-BD6F-4FAE-AC36-6E58A88C8D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
